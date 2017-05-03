@@ -1,0 +1,151 @@
+{{!< default}}
+
+{{#post}}
+
+<main class="content" role="main">
+	<article class="{{post_class}}">
+		<div class="inner">
+
+			<div id="push">
+
+			<header class="post-header">
+				<span class="post-meta">
+					<span class="post-meta-author">{{author}}</span> | <span class="post-meta-date">{{date format="DD MMM YYYY"}} <span class="post-meta-reading-time">| <span class="estimated-reading-time"></span> (<span class="word-count"></span> words)</span></span>
+				</span>
+				<div class="clear"></div>
+				<h1 class="post-title">{{{title}}}</h1>
+			</header>
+		
+			<section class="post-content">
+				{{content}}
+			</section>
+			<!--PC版-->
+<div id="SOHUCS" ></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysVbf1p1',
+conf: 'prod_12c070856d380bab1a603d389e7321b6'
+});
+</script>
+			<footer class="post-footer">
+				
+				<div class="post-tags">
+					{{tags separator=" "}}
+				</div>
+				
+				<div class="post-share">
+					{{!--<a class="icon-twitter" href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<span>Twitter</span>
+					</a>
+					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<span>Facebook</span>
+					</a>
+					<a class="icon-gplus" href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<span>Google+</span>
+					</a>--}}
+					{{! 使用百度分享(http://share.baidu.com/)}}
+					<div class="bdsharebuttonbox" data-tag="share_1">
+						<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+						<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+						<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+						<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+					</div>
+					<script>
+						window._bd_share_config={
+							"common":{
+								"bdSnsKey":{},
+								"bdText":"",
+								"bdMini":"2",
+								"bdMiniList":["qzone","douban","sqq","youdao","linkedin","evernotecn"],
+								"bdPic":"",
+								"bdStyle":"2",
+								"bdSize":"32"
+							},
+							"share":{}
+						};
+						with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+					</script>
+					{{! 百度分享代码结束}}
+
+				</div>
+				
+			</footer>
+			
+			{{#author}}
+			<aside class="post-author">
+				{{#if image}}
+					<figure class="post-author-avatar">
+						<img src="{{image}}" alt="{{name}}" />
+					</figure>
+				{{/if}}
+				<div class="post-author-bio">
+					<h4 class="post-author-name"><a href="{{url}}">{{name}}</a></h4>
+					<p class="post-author-meta">
+						{{#if location}}
+						<span class="post-author-meta-location"><i class="icon-location"></i> {{location}}</span>
+						{{/if}}
+						{{#if website}}
+						<span class="post-author-meta-website"><i class="icon-link"></i> <a href="{{website}}">Website</a></span>
+						{{/if}}
+						{{#if twitter}}
+						<span class="post-author-meta-twitter"><i class="icon-twitter"></i> <a target="_blank" href="https://twitter.com/{{twitter}}">Twitter</a></span>
+						{{/if}}
+						{{#if facebook}}
+						<span class="post-author-meta-facebook"><i class="icon-facebook"></i> <a target="_blank" href="https://facebook.com/{{facebook}}">Facebook</a></span>
+						{{/if}}
+					</p>
+					{{#if bio}}
+						<p class="post-author-about">{{{bio}}}</p>
+					{{/if}}
+				</div>
+				<div class="clear"></div>
+			</aside>
+			{{/author}}
+			
+            {{#if @labs.subscribers}}
+            <aside class="post-subscribe">
+	            <p>Get the latest posts delivered right to your inbox.</p>
+                {{subscribe_form placeholder="Your email address" form_class="post-subscribe-form" input_class="post-subscribe-input" button_class="post-subscribe-button"}}
+            </aside>
+            {{/if}}
+			
+			<aside class="post-comments">
+				<div id="disqus_thread"></div>
+			</aside>
+			
+			</div>
+			
+			<nav class="post-nav">
+				{{#next_post}}
+					<a class="post-nav-item post-nav-next" href="{{url absolute="true"}}">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">{{title}}</h4>
+								<p class="post-nav-excerpt">{{excerpt words="12"}}&hellip;</p>
+							</span>
+						</section>
+					</a>
+				{{/next_post}}
+				{{#prev_post}}
+					<a class="post-nav-item post-nav-prev" href="{{url absolute="true"}}">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">{{title}}</h4>
+								<p class="post-nav-excerpt">{{excerpt words="12"}}&hellip;</p>
+							</span>
+						</section>
+					</a>
+				{{/prev_post}}
+				<div class="clear"></div>
+			</nav>
+			{{/post}}
+
+			{{!--评论模块--}}
+			{{> "comment"}}
+		</div>
+	</article>
+
+</main>

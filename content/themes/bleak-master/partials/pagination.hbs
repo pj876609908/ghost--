@@ -1,0 +1,12 @@
+<nav id="pagination" class="pagination" role="pagination">
+	<div class="inner">
+	    {{#if prev}}
+	        <a class="pagination-item pagination-next" href="{{page_url prev}}"><i class="icon-arrow-left"></i> <span>上一页</span></a>
+	    {{/if}}
+	    <span class="pagination-info">第 {{page}} 页，共 {{pages}} 页</span>
+	    {{#if next}}
+	        <a class="pagination-item pagination-prev" href="{{page_url next}}"><span>下一页</span> <i class="icon-arrow-right"></i></a>
+	    {{/if}}
+	    <div class="clear"></div>
+	</div>
+</nav>
